@@ -15,11 +15,12 @@
     `conda activate allen_stimulus`
 3. Install the AIBS `camstim` package in the environment.  
     `pip install camstim/.`
-4. Download required video clips from [movie_clips.zip](https://tigress-web.princeton.edu/~dmturner/allen_stimulus/movie_clips.zip)
-   Extract into the `data` directory.
+4. Add the necessary active and passive files in the `data` directory.
    
 ### Input Files
 
 There should be a set of pkl files present under `data/` that contains the list of images to display. Each pkl file contains a nested dictionary. At the core level, a 'Group' is defined which associates a list of images together. Within that group are listed the raw data of all images. The name of the group and each individual image is later on used for tracking which images where shown. 
 
 ### Stimulus design
+The repo contains two .py file: passive_stimulus.py and  active_stimulus.py
+Each relates to different parts of the experimental design of this OpenScope project. 
