@@ -71,7 +71,7 @@ if __name__ == "__main__":
                             shuffle=True,)
     
     ss = SweepStim(window,
-                     stimuli=stimulus,
+                     stimuli=[stimulus],
                      pre_blank_sec=10,
                      post_blank_sec=10,
                      params={},
