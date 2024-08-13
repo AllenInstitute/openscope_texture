@@ -44,8 +44,9 @@ if __name__ == "__main__":
     monitor_name = json_params.get('monitor_name', "testMonitor")
     
     # mtrain should be providing : Gamma1.Luminance50
-    image_repeat = json_params.get('monitor_name', 1)
-    
+    image_repeat = json_params.get('image_repeat', 1)
+    blank_sweep = json_params.get('blank_sweep', 100)
+
     # create a monitor
     if monitor_name == 'testMonitor':
         monitor = monitors.Monitor(monitor_name, distance=dist, width=wid)
@@ -65,7 +66,7 @@ if __name__ == "__main__":
                             start_time=0.0,
                             stop_time=None,
                             blank_length=0.5,
-                            blank_sweeps=100,
+                            blank_sweeps=blank_sweep,
                             runs=image_repeat,
                             shuffle=True,)
 
