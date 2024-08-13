@@ -64,7 +64,7 @@ if __name__ == "__main__":
                             sweep_length=0.25,
                             start_time=0.0,
                             stop_time=None,
-                            blank_length=0.0,
+                            blank_length=0.5,
                             blank_sweeps=100,
                             runs=image_repeat,
                             shuffle=True,)
