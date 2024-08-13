@@ -38,7 +38,7 @@ if __name__ == "__main__":
     wid = 52.0
 
     # mtrain should be providing : a path to a network folder or a local folder with the entire repo pulled
-    SESSION_PARAMS_images_folder = json_params.get('images_folder', os.path.abspath(os.path.join("data", "passive")))
+    SESSION_PARAMS_images_folder = json_params.get('data_folder', os.path.abspath(os.path.join("data", "passive")))
     
     # mtrain should be providing : Gamma1.Luminance50
     monitor_name = json_params.get('monitor_name', "testMonitor")
@@ -69,11 +69,20 @@ if __name__ == "__main__":
                             blank_sweeps=blank_sweep,
                             runs=image_repeat,
                             shuffle=True,)
-
-    ss = SweepStim(window,
-                pre_blank_sec=10.0,
-                post_blank_sec=10.0)
     
-    ss.add_stimulus(stimulus)
+    ss = SweepStim(window,
+                     stimuli=stimulus,
+                     pre_blank_sec=10,
+                     post_blank_sec=10,
+                     params={},
+                     )
+    
+    # add in foraging so we can track wheel, potentially give rewards, etc
+    f = Foraging(window = window,
+                    auto_update = False,
+                    params= {}
+                    )
+    
+    ss.add_item(f, "foraging")
 
     ss.run()
